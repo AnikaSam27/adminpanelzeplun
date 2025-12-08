@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
 import Swal from "sweetalert2";
-import { sendTelegramUpdate, sendWhatsAppUpdate } from "../utils/notifications";
+
 
 
 const Dashboard = () => {
@@ -49,17 +49,13 @@ useEffect(() => {
 💰 *Total:* ₹${order.totalAmount || 0}
         `;
 
-        // 🔔 Telegram Admin Alerts
-        await sendTelegramUpdate(message);
+        
 
         // 💬 WhatsApp message to customer
         if (order.customerPhone) {
           const phone = order.customerPhone.replace(/\D/g, "");
 
-          await sendWhatsAppUpdate(
-            phone,
-            `Your order #${order.orderId} is confirmed! Total: ₹${order.totalAmount}`
-          );
+          
         }
 
         notifiedOrders.add(order.id);
