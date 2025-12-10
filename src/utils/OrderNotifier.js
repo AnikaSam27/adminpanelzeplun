@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* --------------------------------------------------------
    🔔 OrderNotifier.js  
    Safe global listener for new orders → Telegram + WhatsApp
@@ -55,6 +56,7 @@ export const startOrderNotificationListener = () => {
 💰 *Total:* ₹${order.totalAmount || 0}
       `;
 
+      // Telegram Admin Alert
       
 
       // WhatsApp Customer
