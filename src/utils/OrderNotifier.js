@@ -5,7 +5,7 @@
 
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
-import { sendTelegramUpdate, sendWhatsAppUpdate } from "./notifications";
+import { sendWhatsAppUpdate } from "./notifications";
 
 let listenerStarted = false;
 
@@ -55,8 +55,7 @@ export const startOrderNotificationListener = () => {
 💰 *Total:* ₹${order.totalAmount || 0}
       `;
 
-      // Telegram Admin Alert
-      await sendTelegramUpdate(message);
+      
 
       // WhatsApp Customer
       if (order.customerPhone) {
